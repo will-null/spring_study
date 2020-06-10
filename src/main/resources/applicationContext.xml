@@ -3,24 +3,21 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-    <!--使用spring创建对象,在spring中,这些都叫bean-->
-    <!--bean相当于对象,id相当于对象名,  全限定名=包名+类名-->
+    <!--使用spring容器(此配置文件)创建对象-->
+    <!--bean相当于把对象交给spring来托管,id相当于对象名,  全限定名=包名+类名-->
     <bean id="jack" class="IOC.dao.Jack"></bean>
-    <!--DI依赖注入-->
-    <bean id="alden" class="IOC.dao.Alden">
-        <!--第一种,普通注入-->
-        <property name="name" value="alden"></property>
-        <!--第二种,set注入-->
-
-
+    <bean id="alden" class="IOC.dao.Alden"></bean>
+    <bean id="uImpl" class="IOC.service.UserServiceImpl">
+        <!--需要哪个对象,可以在容器中改动,ref="jack"-->
+        <property name="userDaoSet" ref="alden"></property>
     </bean>
-    <!--name:别名,可以同时取多个,用来顶替对象名-->
+
+   <!-- name:别名,可以同时取多个,用来顶替对象名
     <bean id="userserviceimpl" class="IOC.service.UserServiceImpl" name="u1,u2">
-        <!--name是service中的属性名,ref是实现了dao接口的类,value是给name里的属性赋值-->
+        &lt;!&ndash;name是service中的属性名,ref是实现了dao接口的类,value是给name里的属性赋值&ndash;&gt;
         <property name="userDa" ref="alden"></property>
     </bean>
-    <!--可以把多个配置文件导入合并进此xml,如果其他xml中的内容有重复,会随机选中一个,而不是重复选择所有-->
-    <import resource="first.xml"></import>
+    &lt;!&ndash;可以把多个配置文件导入合并进此xml,如果其他xml中的内容有重复,会随机选中一个,而不是重复选择所有&ndash;&gt;
+    <import resource="first.xml"></import>-->
 
 </beans>

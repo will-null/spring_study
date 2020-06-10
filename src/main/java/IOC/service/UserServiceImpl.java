@@ -9,29 +9,24 @@ public class UserServiceImpl implements UserService {
     //    每增加一个实现，一个功能，就要重新new一个实例，new Jack();
     //     代码的耦合程度级高，且不符合实际
     //    接口接收实现类的实例
-    //private UserDao userDao = new Jack();
-
+    private UserDao userDao = new Jack();
     public void getUser() {
-      //  userDao.GetName();
+        userDao.GetName();
     }
-
-    //UserDao的不同的实现就像用户的不同需求,每当用户更换需求时,程序猿就要手动
-    // 更换实现private UserDao userDao=new Jack();
-
-
-    //控制反转:就是要把对需求(接口实例)的控制权从程序猿反转给用户,让用户自己选着需求
-
-
 
     //second
     //给定一个接口,至于要用哪个实现,让用户通过set自己选
-    private UserDao useSeUer;
-
-    public void setUseSeUer(UserDao useSeUer) {
-        this.useSeUer = useSeUer;
+    private UserDao userDaoSet;
+    public void setUserDaoSet(UserDao userDaoSet) {
+        this.userDaoSet = userDaoSet;
     }
-
     public void getUserSet() {
-        useSeUer.GetName();
+        userDaoSet.GetName();
     }
+
+    //控制反转:就是要把对需求(接口实例)的控制权从程序员反转给用户,让用户自己选着需求
+    //first中,每更换一个需求,都需要程序员手动变换实例,这样的代码效率低且不切实际
+    //second中,利用set来放置一个未知的实例,根据用户的选择,来确定具体对象
+    //di(依赖注入)并不是IOC(控制反转),只是实现他的一种方式.
+    //依赖注入的实现方式:设值注入(setter)/构造注入(无参构造)/p命名空间/注解注入
 }
