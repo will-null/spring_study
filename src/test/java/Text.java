@@ -5,17 +5,19 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.Target;
-
 public class Text {
 
-    @Test   /*IOC*/
-    public void iocTest() {
+    @Test
+    public void first() {
         UserService userService = new UserServiceImpl();
-        //用户自己来选择想要的需求,而不再需要程序员的参与
-        ((UserServiceImpl) userService).setUserDa(new Alden());
         userService.getUser();
+    }
+
+    @Test
+    public void second() {
+        UserService userService = new UserServiceImpl();
+
+        userService.getUserSet();
     }
 
     @Test
