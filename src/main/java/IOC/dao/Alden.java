@@ -1,5 +1,9 @@
 package IOC.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -62,7 +66,20 @@ public class Alden implements UserDao {
         this.games = games;
     }
 
+    @Override
+    public String toString() {
+        return "Alden{" +
+                "name='" + name + '\'' +
+                ", adrees=" + adrees.toString() +
+                ", book=" + Arrays.toString(book) +
+                ", hobbes=" + hobbes +
+                ", card=" + card +
+                ", games=" + games +
+                '}';
+    }
+
     public void GetName() {
         System.out.print("用户是Alden");
     }
+
 }

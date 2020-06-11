@@ -3,4 +3,49 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--使用spring容器(此配置文件)创建对象-->
+    <!--bean相当于把对象交给spring来托管,id相当于对象名,  全限定名=包名+类名-->
+
+    <!--di 构造注入(有多种方式)，必须在类中写出有参构造，不然会报错-->
+    <bean id="jack" class="IOC.dao.Jack">
+        <constructor-arg name="name" value="北京市"/>
+    </bean>
+
+    <!--di set注入(属性注入) (不同的类型)-->
+    <bean id="aldenOfSet" class="IOC.dao.Alden">
+        <property name="name" value="不知道"></property>
+        <property name="adrees" ref="jack"></property>
+        <property name="book">
+            <array>
+                <value>西游记</value>
+                <value>红楼梦</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+        <property name="hobbes">
+            <list>
+                <value>旅游</value>
+                <value>吃饭</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="idCard" value="123456789"></entry>
+            </map>
+        </property>
+        <property name="games">
+            <set>
+                <value>lol</value>
+                <value>btb</value>
+            </set>
+        </property>
+    </bean>
+
+    <!--scope可设置bean的作用域，单例，原型等（默认单例）-->
+    <!--name:别名,可以同时取多个,用来顶替对象名-->
+    <bean id="uImpl" class="IOC.service.UserServiceImpl" name="u1,u2" scope="singleton">
+        <!--需要哪个对象,可以在容器中改动,ref="jack"-->
+        <property name="userDaoSet" ref="aldenOfSet"></property>
+    </bean>
+
 </beans>
