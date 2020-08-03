@@ -4,10 +4,10 @@ public class ReflectionTest {
     @Test
     public void shuChu() throws ClassNotFoundException {
         //通过反射获取类   类名.class; Class.forName("包+类"); 对象.getClass(); 等都可以
-        Class aniClass=Class.forName("Animal");
+        Class aniClass = Class.forName("Animal");
         //一个类在内存中,只有一个class对象
         //一个类被加载后,类的整个结构都会被封装在class对象中
-System.out.println(aniClass);
+        System.out.println(aniClass);
 
 
     }

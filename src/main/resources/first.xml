@@ -48,4 +48,7 @@
         <property name="userDaoSet" ref="aldenOfSet"></property>
     </bean>
 
+    <bean id="ioCandAOPofService" class="AllZhuJie.service.impl.IOCandAOPofServiceImpl"></bean>
+    <bean id="logAop" class="log.LogAop"></bean>
+    <bean id="diYlog" class="log.DIYlog"></bean>
 </beans>
