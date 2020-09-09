@@ -26,6 +26,7 @@ public class IOCText {
     public void springIOC() {
         //ClassPathXmlApplicationContext读取配置文件,可以同时解析多个xml
         //配置文件加载的时候,spring容器(配置文件)就开始初始化被托管的bean了（每个bean都只有一份实例）
+        //ApplicationContext 除了具有 BeanFactory 的所有能力之外，还提供对事件(点击按钮,文本框输入)监听机制以及国际化的支持等
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         //把bean的控制权交给spring,不需要再new了,直接用spring容器.getBean()就可以得到想要的对象
         Alden alden =(Alden)applicationContext.getBean("aldenOfSet");
