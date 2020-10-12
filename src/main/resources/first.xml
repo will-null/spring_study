@@ -6,12 +6,12 @@
     <!--使用spring容器(此配置文件)创建对象-->
     <!--bean相当于把对象交给spring来托管,id相当于对象名,  全限定名=包名+类名-->
 
-    <!--di 构造注入(有多种方式)，必须在类中写出有参构造，不然会报错-->
+    <!--di 构造注入 constructor-arg (有多种方式)，必须在类中写出有参构造，不然会报错-->
     <bean id="jack" class="IOC.dao.Jack">
         <constructor-arg name="name" value="北京市"/>
     </bean>
 
-    <!--di set注入(属性注入) (不同的类型)-->
+    <!--di set注入 property (属性注入) (不同的类型)-->
     <bean id="aldenOfSet" class="IOC.dao.Alden">
         <property name="name" value="不知道"></property>
         <property name="adrees" ref="jack"></property>

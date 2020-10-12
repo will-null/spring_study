@@ -4,6 +4,7 @@ import IOC.dao.Jack;
 import IOC.service.UserService;
 import IOC.service.UserServiceImpl;
 import org.junit.Test;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -41,6 +42,8 @@ public class IOCText {
         //把bean的控制权交给spring,不需要再new了,直接用spring容器.getBean()就可以得到想要的对象
         User alden =(User)applicationContext.getBean("user");
         System.out.println(alden.name);
+        BeanFactory
     }
+
 
 }
